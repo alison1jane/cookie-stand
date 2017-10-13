@@ -26,22 +26,22 @@ var firstAndPike = {
   render: function() {
     var firstandpike = document.getElementById('firstandpike');
     var fandp = document.getElementById('fandp');
+    console.log(fandp);
     //calling the methods
     this.calcRandCustByHour();
     this.calcCookiesSoldByHour();
-   }
-   //variable to be able to append an item to the list
-   //create new h3 element
-    var heEl = document.createElement('h3');
-   //allow for text to be added to the h3 element
-   h3El.textContent = this.name;
-   fandp.appendChild(h3El);
-   for(var k =0; k < hours.length; k ++) {
-     //going through the hours array and creating multiple lis
-     var liEl = document.createElement('li');
-     liEl.textContent = hours[k] + ' : ' + this.cookiesSoldByHour[k] + 'cookies';
-     console.log(liEl);
-   }
+    //variable to be able to append an item to the list
+    //create new h3 element
+    var h3El = document.createElement('h3');
+    //allow for text to be added to the h3 element
+    h3El.textContent = this.name;
+    fandp.appendChild(h3El);
+    for(var k = 0; k < hours.length; k ++) {
+    //going through the hours array and creating multiple lis
+      var liEl = document.createElement('li');
+      liEl.textContent = hours[k] + ' : ' + this.cookiesSoldByHour[k] + 'cookies';
+      console.log(liEl);
+    }
   },
 };
 firstAndPike.render();
