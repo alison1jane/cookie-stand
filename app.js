@@ -32,7 +32,6 @@ var firstAndPike = {
     this.calcCookiesSoldByHour();
 
     var h3El = document.createElement('h3');
-
     h3El.textContent = this.name;
     fandp.appendChild(h3El);
     for(var k = 0; k < hours.length; k ++) {
@@ -71,21 +70,64 @@ var seaTacAir = {
     }
   },
   render: function() {
-    var SeaTacAir = document.getElementById('seatacair');
+    var seatacair = document.getElementById('seatacair');
     var stac = document.getElementById('stac');
     this.calcRandCustByHour();
     this.calcCookiesSoldByHour();
 
     var h3El = document.createElement('h3');
-    h3El.textContent + this.name;
+    h3El.textContent = this.name;
     stac.appendChild(h3El);
     for(var k = 0; k < hours.length; k++) {
 
       var liEl = document.createElement('li');
-      liEl.textContent = hours[k] + ' : ' + 'cookies';
+      liEl.textContent = hours[k] + ' : ' + this.cookiesSoldByHour[k] + 'cookies';
       seatacair.appendChild(liEl);
     }
   }
 };
 
 seaTacAir.render();
+//Seattle Center Location
+var seattleCenter = {
+  name: 'Seattle Center',
+  minCustPerHour: 11,
+  maxCustPerHour:38,
+  avgCookieSoldPerHour: 3.7,
+  randCustByHour: [],
+  cookiesSoldByHour: [],
+  totalCookies: 0,
+  //method for random customers by hour
+  calcRandCustByHour: function() {
+    for(var i = 0; i < hours.length; i++) {
+      this.randCustByHour.push(Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour);
+
+      console.log('calcRandCustByHour ' + this.randCustByHour[i]);
+    }
+  },
+
+  calcCookiesSoldByHour: function() {
+    for(var j = 0; j < hours.length; j++) {
+      this.cookiesSoldByHour.push(Math.round(this.avgCookieSoldPerHour * this.randCustByHour[j]));
+    }
+  },
+  render: function() {
+    var seattlecenter = document.getElementById('seattlecenter');
+    var seacent = document.getElementById('seacent');
+    this.calcRandCustByHour();
+    this.calcCookiesSoldByHour();
+
+    var h3El = document.createElement('h3');
+    h3El.textContent = this.name;
+    seacent.appendChild(h3El);
+    for(var k = 0; k < hours.length; k ++) {
+
+      var liEl = document.createElement('li');
+      liEl.textContent = hours[k] + ' : ' + this.cookiesSoldByHour[k] + 'cookies';
+      // console.log('*******' , liEl);
+      seattlecenter.appendChild(liEl);
+    }
+  }
+};
+
+seattleCenter.render();
