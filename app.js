@@ -19,7 +19,7 @@ var firstAndPike = {
       console.log('calcRandCustByHour ' + this.randCustByHour[i]);
     }
   },
-  //method for cookies sold by hours
+
   calcCookiesSoldByHour: function() {
     for(var j = 0; j < hours.length; j++) {
       this.cookiesSoldByHour.push(Math.round(this.avgCookieSoldPerHour * this.randCustByHour[j]));
@@ -28,18 +28,15 @@ var firstAndPike = {
   render: function() {
     var firstandpike = document.getElementById('firstandpike');
     var fandp = document.getElementById('fandp');
-    //console.log(fandp);
-    //calling the methods
     this.calcRandCustByHour();
     this.calcCookiesSoldByHour();
-    //variable to be able to append an item to the list
-    //create new h3 element
+
     var h3El = document.createElement('h3');
-    //allow for text to be added to the h3 element
+
     h3El.textContent = this.name;
     fandp.appendChild(h3El);
     for(var k = 0; k < hours.length; k ++) {
-    //going through the hours array and creating multiple lis
+
       var liEl = document.createElement('li');
       liEl.textContent = hours[k] + ' : ' + this.cookiesSoldByHour[k] + 'cookies';
       // console.log('*******' , liEl);
@@ -49,94 +46,46 @@ var firstAndPike = {
 };
 
 firstAndPike.render();
-//
-// //SeaTacAirport Location
-// var seaTacAir = {
-//   minCustPerHour: 3,
-//   maxCustPerHur: 2,
-//   avgCookieSoldPerHour: 1.2,
-//   randCustByHour: [],
-//   cookiesSoldByHour: [],
-//   totalCookies: 0,
-//   //method for random customers by hour
-//   calcRandCustByHour: function() {
-//     for(var i = 0; i < hours.length; i++) {
-//       this.randCustByHour.push(Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour);
-//       console.log(this.randCustByHour[i]);
-//     }
-//   },
-//   //method for cookies sold by hours
-//   calcCookiesSoldByHour: function() {
-//     for(var j = 0; j < hours.length; j++) {
-//       this.cookiesSoldByHour.push(Math.round(this.avgCookieSoldPerHour * this.randCustByHour[j]));
-//     }
-//   },
-//   render: function() {
-//     var seatacair = document.getElementById('seatacair');
-//     var stac = document.getElementById('stac');
-//     //console.log(stac);
-//     //calling the methods
-//     this.calcRandCustByHour();
-//     this.calcCookiesSoldByHour();
-//     //variable to be able to append an item to the list
-//     //create new h3 element
-//     var h3El = document.createElement('h3');
-//     //allow for text to be added to the h3 element
-//     h3El.textContent = this.name;
-//     stac.appendChild(h3El);
-//     for(var m = 0; m < hours.length; m ++) {
-//     //going through the hours array and creating multiple lis
-//       var liEl = document.createElement('li');
-//       liEl.textContent = hours[m] + ' : ' + this.cookiesSoldByHour[m] + 'cookies';
-//       console.log(liEl);
-//       seatacair.appendChild(liEl);
-//       //for var l = 0; l < hours.length
-//     }
-//   },
-// };
-// seaTacAir.render();
 
-//Seattle Center Location
-// var seattCenter = {
-//   minCustPerHour: 11,
-//   maxCustPerHur:38,
-//   avgCookieSoldPerHour: 3.7,
-//   randCustByHour: [],
-//   cookiesSoldByHour: [],
-//   totalCookies: 0,
-//   //method for random customers by hour
-//   calcRandCustByHour: function() {
-//     for(var i = 0; i < hours.length; i++) {
-//       this.randCustByHour.push(Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour);
-//       console.log(this.randCustByHour[i]);
-//     }
-//   },
-//   //method for cookies sold by hours
-//   calcCookiesSoldByHour: function() {
-//     for(var j = 0; j < hours.length; j++) {
-//       this.cookiesSoldByHour.push(Math.round(this.avgCookieSoldPerHour * this.randCustByHour[j]));
-//     }
-//   },
-//   render: function() {
-//     var seacent = document.getElementById('seacent');
-//     var scent = document.getElementById('scent');
-//     //console.log(seacent);
-//     //calling the methods
-//     this.calcRandCustByHour();
-//     this.calcCookiesSoldByHour();
-//     //variable to be able to append an item to the list
-//     //create new h3 element
-//     var h3El = document.createElement('h3');
-//     //allow for text to be added to the h3 element
-//     h3El.textContent = this.name;
-//     scent.appendChild(h3El);
-//     for(var k = 0; k < hours.length; k ++) {
-//     //going through the hours array and creating multiple lis
-//       var liEl = document.createElement('li');
-//       liEl.textContent = hours[k] + ' : ' + this.cookiesSoldByHour[k] + 'cookies';
-//       console.log(liEl);
-//     }
-//   },
-// };
-//
-// seattCenter.render();
+//SeaTacAirport Location
+var seaTacAir = {
+  name: 'Sea Tac Airport',
+  minCustPerHour: 3,
+  maxCustPerHour: 24,
+  avgCookieSoldPerHour: 1.2,
+  randCustByHour: [],
+  cookiesSoldByHour: [],
+  totalCookies: 0,
+
+  calcRandCustByHour: function() {
+    for(var i = 0; i < hours.length;i++) {
+      this.randCustByHour.push(Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour);
+
+      console.log('calcRandCustByHour ' + this.randCustByHour[i]);
+    }
+  },
+
+  calcCookiesSoldByHour: function() {
+    for(var j = 0; j < hours.length; j++) {
+      this.cookiesSoldByHour.push(Math.round(this.avgCookieSoldPerHour * this.randCustByHour[j]));
+    }
+  },
+  render: function() {
+    var SeaTacAir = document.getElementById('seatacair');
+    var stac = document.getElementById('stac');
+    this.calcRandCustByHour();
+    this.calcCookiesSoldByHour();
+
+    var h3El = document.createElement('h3');
+    h3El.textContent + this.name;
+    stac.appendChild(h3El);
+    for(var k = 0; k < hours.length; k++) {
+
+      var liEl = document.createElement('li');
+      liEl.textContent = hours[k] + ' : ' + 'cookies';
+      seatacair.appendChild(liEl);
+    }
+  }
+};
+
+seaTacAir.render();
