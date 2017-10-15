@@ -29,35 +29,49 @@ function MakeLocation(name, minCustPerHour, maxCustPerHour, avgCookieSoldPerHour
       this.cookiesSoldByHour.push(Math.round(this.avgCookieSoldPerHour * this.randCustByHour[j]));
     }
   };
-  this.render = function() {
-    var name = document.getElementById('cookiestands');
-    console.log('name: ', name);
-    this.calcRandCustByHour();
-    this.calcCookiesSoldByHour();
-    //
-    // var h3El = document.createElement('h3');
-    // h3El.textContent = this.name;
-    // fandp.appendChild(h3El);
-    // for(var k = 0; k < hours.length; k ++) {
-    //
-    //   var liEl = document.createElement('li');
-    //   liEl.textContent = hours[k] + ' : ' + this.cookiesSoldByHour[k] + 'cookies';
-    //   // console.log('*******' , liEl);
-    //   firstandpike.appendChild(liEl);
-    // }
-  };
+  // this.render = function() {
+  //   var name = document.getElementById('cookiestands');
+  //   console.log('name: ', name);
+  //   this.calcRandCustByHour();
+  //   this.calcCookiesSoldByHour();
+  //
+  // var h3El = document.createElement('h3');
+  // h3El.textContent = this.name;
+  // fandp.appendChild(h3El);
+  // for(var k = 0; k < hours.length; k ++) {
+  //
+  //   var liEl = document.createElement('li');
+  //   liEl.textContent = hours[k] + ' : ' + this.cookiesSoldByHour[k] + 'cookies';
+  //   // console.log('*******' , liEl);
+  //   firstandpike.appendChild(liEl);
+  // }
 };
 //make new loation for all 5 stores
 function makeStands() {
-  new MakeLocation('First and Pike', 23, 65, 6.3);
-  new MakeLocation('SeaTac Airport', 3, 24, 1.2);
-  new MakeLocation('Seattle Center', 11, 38, 3.7);
-  new MakeLocation('Capitol Hill', 20, 38, 2.3);
-  new MakeLocation('Alki', 2, 16, 4.6);
-
+  var firstAndPike = new MakeLocation ('First and Pike', 23, 65, 6.3);
+  var SeaTacAirport = new MakeLocation('SeaTac Airport', 3, 24, 1.2);
+  var seattleCenter = new MakeLocation('Seattle Center', 11, 38, 3.7);
+  var capitolHill = new MakeLocation('Capitol Hill', 20, 38, 2.3);
+  var Alki = new MakeLocation('Alki', 2, 16, 4.6);
 };
 makeStands();
-
+//Create Table function
+//header row and table data
+//add table id in html
+function makeHeaderRow() {
+  var cookiestands = document.getElementById('cookiestands');
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+  trEl.appendChild(thEl);
+}
+makeHeaderRow();
+//create table rows
+function makeTableHeader() {
+  var cookiestands = document.getElementById('cookiestands');
+  var thEl = document.createElement('th');
+  thEl.textContent = ' hours ';
+}
+makeTableHeader();
 // this.name;
 //First and Pike Location
 //ookies: 0,
