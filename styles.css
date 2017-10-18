@@ -30,3 +30,6 @@ p {
   margin: 20px auto 20px auto;
   font-weight: normal;
 }
+table td, table th {
+  border: 1px solid black;
+}

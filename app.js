@@ -17,6 +17,8 @@ function MakeLocation(name, minCustPerHour, maxCustPerHour, avgCookieSoldPerHour
   this.cookiesSoldByHour = [];
   this.totalCookies = 0;
   allLocations.push(this);
+  console.log('this.cookiesSoldByHour', this.cookiesSoldByHour);
+
   // console.log('***** ', this),
   //method to calculate random customers by hour
   this.calcRandCustByHour = function() {
@@ -26,7 +28,7 @@ function MakeLocation(name, minCustPerHour, maxCustPerHour, avgCookieSoldPerHour
   };
   this.calcCookiesSoldByHour = function() {
     for(var j = 0; j < hours.length; j++) {
-      this.cookiesSoldByHour.push(Math.round(this.avgCookieSoldPerHour * this.randCustByHour[j]));
+      this.cookiesSoldByHour.push(Math.round(this.avgCookieSoldPerHour * this.randCustByHour[j]);
     }
   };
   // this.render = function() {
@@ -62,16 +64,37 @@ function makeHeaderRow() {
   var cookiestands = document.getElementById('cookiestands');
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
+  thEl.textContent = 'Location';
   trEl.appendChild(thEl);
+
+  for(var i = 0; i < hours.length; i++) {
+    var tdEl = document.createElement('td');
+    tdEl.textContent = hours[i];
+    trEl.appendChild(tdEl);
+  }
+  cookiestands.appendChild(trEl);
+
 }
 makeHeaderRow();
+
 //create table rows
-function makeTableHeader() {
+function tableRowMaker() {
   var cookiestands = document.getElementById('cookiestands');
-  var thEl = document.createElement('th');
-  thEl.textContent = ' hours ';
+  var trEl = document.createElement('tr');
+  var tdEl = document.createElement('td');
+  tdEl.textContent = 'this.name';
+  trEl.appendChild(tdEl);
+
+  for(var i = 0; i < hours.length; i++) {
+    var tdEl = document.createElement('td');
+    //need cookies sold per hour
+    tdEl.textContent = 'cSHr[i]';
+    trEl.appendChild(tdEl);
+  }
+  cookiestands.appendChild(trEl);
 }
-makeTableHeader();
+tableRowMaker();
+
 // this.name;
 //First and Pike Location
 //ookies: 0,
