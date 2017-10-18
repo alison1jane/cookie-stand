@@ -28,7 +28,7 @@ function MakeLocation(name, minCustPerHour, maxCustPerHour, avgCookieSoldPerHour
   };
   this.calcCookiesSoldByHour = function() {
     for(var j = 0; j < hours.length; j++) {
-      this.cookiesSoldByHour.push(Math.round(this.avgCookieSoldPerHour * this.randCustByHour[j]);
+      this.cookiesSoldByHour.push(Math.round(this.avgCookieSoldPerHour * this.randCustByHour[j]));
     }
   };
   // this.render = function() {
@@ -96,8 +96,8 @@ function tableRowMaker() {
 tableRowMaker();
 
 // this.name;
-//First and Pike Location
-//ookies: 0,
+//First and Pike Location ****some beginning lines of creating first and pike location are missing immediately below***
+//cookies: 0,
 //method for random customers by hour
 //calcRandCustByHour: function() {
 //   for(var i = 0; i < hours.length; i++) {
