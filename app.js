@@ -40,7 +40,7 @@ MakeLocation.prototype.calcCookiesSoldByHour = function() {
     var randomCookies = Math.round(this.avgCookieSoldPerHour * this.randCustByHour[j]);
     this.cookiesSoldByHour.push(randomCookies);
     this.dailyTotalCookiesSold = this.dailyTotalCookiesSold + randomCookies;
-    console.log('daily total cookies sold ' + ths.dailyTotalCookiesSold);
+    console.log('daily total cookies sold ' + this.dailyTotalCookiesSold);
     console.log('this.cookiesSoldByHour inside calcCookiesSoldByHour:  ', this.cookiesSoldByHour);
   }
 };
