@@ -111,7 +111,7 @@ var firstAndPike = {
     for(var i = 0; i < hours.length; i++) {
       this.randCustByHour.push(Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour);
 
-      console.log('calcRandCustByHour ' + this.randCustByHour[i]);
+      //console.log('calcRandCustByHour ' + this.randCustByHour[i]);
     }
   },
 
@@ -155,7 +155,7 @@ var seaTacAir = {
     for(var i = 0; i < hours.length;i++) {
       this.randCustByHour.push(Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour);
 
-      console.log('calcRandCustByHour ' + this.randCustByHour[i]);
+      //console.log('calcRandCustByHour ' + this.randCustByHour[i]);
     }
   },
 
@@ -197,7 +197,7 @@ var seattleCenter = {
     for(var i = 0; i < hours.length; i++) {
       this.randCustByHour.push(Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour);
 
-      console.log('calcRandCustByHour ' + this.randCustByHour[i]);
+      //console.log('calcRandCustByHour ' + this.randCustByHour[i]);
     }
   },
 
@@ -242,7 +242,7 @@ var capitolHill = {
     for(var i = 0; i < hours.length; i++) {
       this.randCustByHour.push(Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour);
 
-      console.log('calcRandCustByHour ' + this.randCustByHour[i]);
+      //console.log('calcRandCustByHour ' + this.randCustByHour[i]);
     }
   },
 
@@ -287,7 +287,7 @@ var alki = {
     for(var i = 0; i < hours.length; i++) {
       this.randCustByHour.push(Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour);
 
-      console.log('calcRandCustByHour ' + this.randCustByHour[i]);
+      //console.log('calcRandCustByHour ' + this.randCustByHour[i]);
     }
   },
 

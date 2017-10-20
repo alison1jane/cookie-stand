@@ -22,7 +22,7 @@ ul {
   text-align: center;
 }
 li {
-  display: inline;
+  display: inline; 
   margin: 0px 3px;
 }
 p {
