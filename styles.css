@@ -47,7 +47,7 @@ li {
 }
 
 input {
-    border: 3px solid #73094c;
+    border: 3px solid #47476b;
     border-radius: 10px;
     padding: 5px 5px 5px 5px;
     margin: 15px;
@@ -68,6 +68,7 @@ fieldset {
   margin-top: 30px;
   text-align: center;
   display: center-align;
+  font-weight:200;
 }
 
 legend {
@@ -78,7 +79,19 @@ legend {
   padding: 10px; 20px;
   margin-top: 25px;
   text-align: left;
+  font-weight:500;
 }
+
+button {
+  background-color:  #ffbb99;
+  text-shadow: 0px, 4px, 4px, #ffffff;
+  border: 1px solid #47476b;
+  border-radius: 5px;
+  display: inline-flex;
+  */margin: 0px, 2px, 4px, 10px;*/
+}
+
+
 
 p {
   width: 600px;
