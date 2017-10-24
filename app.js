@@ -47,17 +47,24 @@ MakeLocation.prototype.calcCookiesSoldByHour = function() {
 MakeLocation.prototype.tableRowMaker = function() {
   var cookiestands = document.getElementById('cookiestands');
   var trEl = document.createElement('tr');
+
   var tdEl = document.createElement('td');
   tdEl.textContent = this.name;
   trEl.appendChild(tdEl);
 
+  var dailyTotalCookiesSold = 0;
   for(var i = 0; i < hours.length; i++) {
     var tdEl = document.createElement('td');
-    //need cookies sold per hour
     tdEl.textContent = this.cookiesSoldByHour[i];
-    //console.log('this ', this);
     trEl.appendChild(tdEl);
+    // need to figure out how to make this work with the variable  this.dailyTotalCookiesSold = this.dailyTotalCookiesSold + this.cookiesSoldByHour[i];
+    dailyTotalCookiesSold = dailyTotalCookiesSold + this.cookiesSoldByHour[i];
   }
+  var tdEl = document.createElement('td');
+  //tdEl.textContent = this.dailyTotalCookiesSold;
+  tdEl.textContent = dailyTotalCookiesSold;
+  trEl.appendChild(tdEl);
+
   cookiestands.appendChild(trEl);
 };
 //Prototype for totals daily cookies sold
@@ -113,6 +120,7 @@ var Alki = new MakeLocation('Alki', 2, 16, 4.6);
 function makeHeaderRow() {
   var cookiestands = document.getElementById('cookiestands');
   var trEl = document.createElement('tr');
+
   var thEl = document.createElement('th');
   thEl.textContent = 'Location';
   trEl.appendChild(thEl);
@@ -122,6 +130,9 @@ function makeHeaderRow() {
     tdEl.textContent = hours[i];
     trEl.appendChild(tdEl);
   }
+  var tdEl = document.createElement('td');
+  tdEl.textContent = 'Totals';
+  trEl.appendChild(tdEl);
   cookiestands.appendChild(trEl);
 
 }
