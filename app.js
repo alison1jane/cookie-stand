@@ -22,6 +22,7 @@ function MakeLocation(name, minCustPerHour, maxCustPerHour, avgCookieSoldPerHour
   this.tableRowMaker();
   this.dailyCookiesSold = [];
   this.dailyTotalCookiesSold = 0;
+  this.hourlyCookieTotals = [];
   // console.log('this.cookiesSoldByHour', this.cookiesSoldByHour);
 }
 // console.log('***** ', this),
@@ -57,7 +58,7 @@ MakeLocation.prototype.tableRowMaker = function() {
     var tdEl = document.createElement('td');
     tdEl.textContent = this.cookiesSoldByHour[i];
     trEl.appendChild(tdEl);
-    // need to figure out how to make this work with the variable  this.dailyTotalCookiesSold = this.dailyTotalCookiesSold + this.cookiesSoldByHour[i];
+    // calculate daily totals by hour
     dailyTotalCookiesSold = dailyTotalCookiesSold + this.cookiesSoldByHour[i];
   }
   var tdEl = document.createElement('td');
@@ -91,18 +92,8 @@ MakeLocation.prototype.dailyCookiesSold = function() {
 //   console.log('name: ', name);
 //   this.calcRandCustByHour();
 //   this.calcCookiesSoldByHour();
-//
-//   var h3El = document.createElement('h3');
-//   h3El.textContent = this.name;
-//   fandp.appendChild(h3El);
-//   for(var k = 0; k < hours.length; k ++) {
-//
-//     var liEl = document.createElement('li');
-//     liEl.textContent = hours[k] + ' : ' + this.cookiesSoldByHour[k] + 'cookies';
-//     // console.log('*******' , liEl);
-//     firstandpike.appendChild(liEl);
-//   }
 // };
+
 //make new loation for all 5 stores replaces object literal code, YAY!!!
 // function makeStands() {
 makeHeaderRow();
@@ -132,6 +123,25 @@ function makeHeaderRow() {
   }
   var tdEl = document.createElement('td');
   tdEl.textContent = 'Totals';
+  trEl.appendChild(tdEl);
+  cookiestands.appendChild(trEl);
+
+}
+function makeTotalsRow() {
+  var cookiestands = document.getElementById('cookiestands');
+  var trEl = document.createElement('tr');
+
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Totals';
+  trEl.appendChild(thEl);
+
+  for(var i = 0; i < hours.length; i++) {
+    var tdEl = document.createElement('td');
+    tdEl.textContent = this.hourlyCookieTotals[i];
+    trEl.appendChild(tdEl);
+  }
+  var tdEl = document.createElement('td');
+  tdEl.textContent = 'Something';
   trEl.appendChild(tdEl);
   cookiestands.appendChild(trEl);
 
