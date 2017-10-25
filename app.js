@@ -3,9 +3,11 @@
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 //array to store list of all locations as they are created
 var allLocations = [];
+//array to store calculations of hourly cookies sold at all locations
+var hourlyCookieTotals = [];
 //dynamic variable to allow to edit total cookies by hour
 var totalCookiesByHour = 0;
-//Net total for each locations
+//Net total for each location
 var storeNetTotal = 0;
 //Constructor function***begins with upper case*** to create additional locationsand methods and or properties for them
 function MakeLocation(name, minCustPerHour, maxCustPerHour, avgCookieSoldPerHour) {
@@ -22,7 +24,7 @@ function MakeLocation(name, minCustPerHour, maxCustPerHour, avgCookieSoldPerHour
   this.tableRowMaker();
   this.dailyCookiesSold = [];
   this.dailyTotalCookiesSold = 0;
-  this.hourlyCookieTotals = [];
+
   // console.log('this.cookiesSoldByHour', this.cookiesSoldByHour);
 }
 // console.log('***** ', this),
@@ -40,6 +42,11 @@ MakeLocation.prototype.calcCookiesSoldByHour = function() {
   for(var j = 0; j < hours.length; j++) {
     var randomCookies = Math.round(this.avgCookieSoldPerHour * this.randCustByHour[j]);
     this.cookiesSoldByHour.push(randomCookies);
+    if (!hourlyCookieTotals[j]) {
+      hourlyCookieTotals.push(randomCookies);
+    } else {
+      hourlyCookieTotals[j] = hourlyCookieTotals[j] + randomCookies;
+    }
     this.dailyTotalCookiesSold = this.dailyTotalCookiesSold + randomCookies;
     // console.log('daily total cookies sold ' + this.dailyTotalCookiesSold);
     // console.log('this.cookiesSoldByHour inside calcCookiesSoldByHour:  ', this.cookiesSoldByHour);
@@ -95,7 +102,7 @@ MakeLocation.prototype.dailyCookiesSold = function() {
 // };
 
 //make new loation for all 5 stores replaces object literal code, YAY!!!
-// function makeStands() {
+// function to make new stands
 makeHeaderRow();
 var firstAndPike = new MakeLocation ('First and Pike', 23, 65, 6.3);
 var SeaTacAirport = new MakeLocation('SeaTac Airport', 3, 24, 1.2);
@@ -104,10 +111,10 @@ var capitolHill = new MakeLocation('Capitol Hill', 20, 38, 2.3);
 var Alki = new MakeLocation('Alki', 2, 16, 4.6);
 //console.log(allLocations);
 // };
-// makeStands();
+
 //Create Table function
 //header row and table data
-//add table id in html
+//call function to build header row portion of the table
 function makeHeaderRow() {
   var cookiestands = document.getElementById('cookiestands');
   var trEl = document.createElement('tr');
@@ -137,12 +144,16 @@ function makeTotalsRow() {
 
   for(var i = 0; i < hours.length; i++) {
     var tdEl = document.createElement('td');
-    tdEl.textContent = this.hourlyCookieTotals[i];
+    tdEl.textContent = hourlyCookieTotals[i];
     trEl.appendChild(tdEl);
   }
   var tdEl = document.createElement('td');
-  tdEl.textContent = 'Something';
+  for (var j = 0; j < hourlyCookieTotals.length; j++) {
+    storeNetTotal = storeNetTotal + hourlyCookieTotals[j];
+  }
+  tdEl.textContent = storeNetTotal;
   trEl.appendChild(tdEl);
   cookiestands.appendChild(trEl);
 
 }
+makeTotalsRow();
